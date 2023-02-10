@@ -29,7 +29,7 @@
           "gloss": "Jakarta"
         },
         {
-          "form": "sekarang.",
+          "form": "sekarang",
           "gloss": "now"
         }
       ],
@@ -67,7 +67,7 @@
           "gloss": "behind"
         },
         {
-          "form": "amuq’-da-č.",
+          "form": "amuq’-da-č",
           "gloss": "stay-FUT-NEG"
         }
       ],
@@ -149,8 +149,8 @@
           "gloss": "All"
         },
         {
-          "form": "Peredelkino.",
-          "gloss": "Peredelkino."
+          "form": "Peredelkino",
+          "gloss": "Peredelkino"
         }
       ],
       "translation": "we\n\t\t\t    with\n\t\t\t    Markogo-PST-PL\n\t\t\t    bus-by\n\t\t\t    to\n\t\t\t    Peredelkino."
@@ -259,7 +259,7 @@
           "gloss": "time.DAT.SG"
         },
         {
-          "form": "essandu.",
+          "form": "essandu",
           "gloss": "eat.they.shall"
         }
       ],
@@ -281,7 +281,7 @@
           "gloss": "who"
         },
         {
-          "form": "guny-bi-yarluga?",
+          "form": "guny-bi-yarluga",
           "gloss": "2DU.A.3SG.P-FUT-poke"
         }
       ],
@@ -369,7 +369,7 @@
           "gloss": "time:DAT;SG"
         },
         {
-          "form": "essandu.",
+          "form": "essandu",
           "gloss": "eat:they:shall"
         }
       ],
@@ -449,7 +449,7 @@
           "gloss": "who"
         },
         {
-          "form": "guny-bi-yarluga?",
+          "form": "guny-bi-yarluga",
           "gloss": "2DU>3SG-FUT-poke"
         }
       ],
@@ -515,7 +515,7 @@
           "gloss": "boy[NOM.SG]"
         },
         {
-          "form": "or:",
+          "form": "or",
           "gloss": "boy-NOM.SG"
         },
         {
@@ -602,14 +602,12 @@
           "gloss": "PTCP-see-PTCP"
         },
         {
-          "form": "or:",
+          "form": "ge-seh-en",
           "gloss": "PTCP-see-CIRC"
-        },
-        {
-          "form": "ge-seh-en"
+
         }
       ],
-      "translation": "'seen'\n                'seen'"
+      "translation": "'seen'"
     },
     {
       "metadata": {
@@ -623,7 +621,7 @@
       "transcription": "b<um>ili (stem: bili)",
       "words": [
         {
-          "form": "b<um>ili (stem: bili)",
+          "form": "b<um>ili (stem: bili",
           "gloss": "<ACTFOC>buy"
         }
       ],
@@ -641,8 +639,9 @@
       "transcription": "reli<n>qu-ere (stem: reliqu-)",
       "words": [
         {
-          "form": "reli<n>qu-ere (stem: reliqu-)",
-          "gloss": "leave<PRS>-INF"
+          "form": "reli<n>qu-ere",
+          "gloss": "leave<PRS>-INF",
+          
         }
       ],
       "translation": "'to leave'"
