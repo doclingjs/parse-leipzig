@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Try parse-leipzig</title>
+  <title>Try parse-leipzig.js</title>
   <style>
     * {
       box-sizing: border-box;
@@ -21,6 +21,21 @@
       padding:1em;
       display: grid;
       grid-template-rows: auto 1fr;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid gray;
+      font-size: small;;
+    }
+  
+    header h1 {
+      flex: 5;
+    }
+
+    header p {
+      flex: 1;
     }
 
     main {
@@ -45,13 +60,15 @@
     }
 
     pre {
+      padding: 1em;
       background: gainsboro;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Try <code>parse-leipzig</code></h1>
+    <h1>Try <code>parse-leipzig.js</code></h1>
+    <p>Type a <a href="https://www.eva.mpg.de/lingua/resources/glossing-rules.php">Leipzig Parsing Rules</a>-style form and gloss in the form, and the preview will update when submitted.</p>
   </header>
   <main>
     <form>
