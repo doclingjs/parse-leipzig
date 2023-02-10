@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try parse-leipzig</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      margin:0;
+      height: 100%;
+      padding: 0;
+    }
+
+    body {
+      height: 100%;
+      margin:0;
+      padding:1em;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      place-content: center;
+      gap: 1em;
+      align-items: start;
+    }
+
+    form label {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    form button {
+      justify-self: start;
+    }
+
+    pre {
+      background: gainsboro;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Try <code>parse-leipzig</code></h1>
+  </header>
+  <main>
+    <form>
+      <label>Form: <input name="form" placeholder="form"></label>
+      <label>Gloss: <input name="gloss" placeholder="gloss"></label>
+      <button>Parse</button>
+    </form>
+
+    <pre id="preview"><em>Preview will go here…</em></pre>
+  </main>
+<script type="module">
+import {parseLeipzig} from './parse-leipzig.js'
+
+let wordForm = document.querySelector('form')
+let preview = document.querySelector('pre#preview')
+
+let parseWord = () => {
+  let word = {
+    form: wordForm.form.value,
+    gloss: wordForm.gloss.value
+  }
+  
+  return parseLeipzig(word)
+}
+
+
+wordForm.addEventListener('submit', submitEvent => {
+  submitEvent.preventDefault()
+  console.log(`hi`)
+  let word = parseWord()
+
+  preview.textContent = JSON.stringify(word, null, 2)
+})
+
+Object.assign(window, {wordForm, preview, parseLeipzig})
+
+</script>
+</body>
+</html>
