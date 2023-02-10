@@ -1,4 +1,4 @@
-let parseLeipzigGlossing = word {
+let parseLeipzig = word {
   let form = word.form
   let gloss = word.gloss
 
@@ -15,3 +15,5 @@ let parseLeipzigGlossing = word {
   
   return morphemes
 }
+
+export {parseLeipzig}
