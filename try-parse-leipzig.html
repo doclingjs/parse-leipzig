@@ -12,6 +12,8 @@
 
   <title>Try parse-leipzig.js</title>
   <style>
+  @import url('https://docling.net/book/docling/css/docling-index.css');
+
     * {
       box-sizing: border-box;
     }
@@ -29,7 +31,7 @@
       grid-template-rows: auto 1fr;
     }
 
-    header {
+    body > header {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid gray;
@@ -45,16 +47,27 @@
     }
 
     main {
+      padding: 1em;;
       display: grid;
+      gap: 1em;
+      overflow:scroll;
+      height: 100%;
+      grid-template:
+        "word preview" auto
+        "text preview" 1fr
+      / 1fr 1fr;
       grid-template-columns: 1fr 1fr;;
     }
 
     form {
+      grid-area: word;
       display: flex;
       flex-direction: column;
       place-content: center;
       gap: 1em;
       align-items: start;
+      border: 1px solid;
+      padding:1em;
     }
 
     form label {
@@ -65,7 +78,19 @@
       justify-self: start;
     }
 
+    text-view {
+      grid-area: text;
+      height: 100%;
+      overflow: scroll;
+    }
+    
+    word-view:hover {
+      background: lemonchiffon;
+      cursor: pointer;
+    }
+
     pre {
+      grid-area: preview;
       padding: 1em;
       background: gainsboro;
     }
@@ -74,7 +99,7 @@
 <body>
   <header>
     <h1>Try <code>parse-leipzig.js</code></h1>
-    <p>Type a <a href="https://www.eva.mpg.de/lingua/resources/glossing-rules.php">Leipzig Parsing Rules</a>-style form and gloss in the form, and the preview will update when submitted. <a href="https://github.com/doclingjs/parse-leipzig">github.com/doclingjs/parse-leipzig</a></p>
+    <p>Try clicking a word in the presentation of the <a href="https://www.eva.mpg.de/lingua/resources/glossing-rules.php">Leipzig Parsing Rules</a> here, or else type in your own and click “parse”. The data strcture preview will update when submitted. <a href="https://github.com/doclingjs/parse-leipzig">github.com/doclingjs/parse-leipzig</a></p>
   </header>
   <main>
     <form>
@@ -83,10 +108,13 @@
       <button>Parse</button>
     </form>
 
+    <text-view src="leipzig-text.json"></text-view>
+
     <pre id="preview"><em>Preview will go here…</em></pre>
   </main>
 <script type="module">
 import {parseLeipzig} from './parse-leipzig.js'
+import {TextView} from 'https://docling.net/book/docling/text/text-view/TextView.js'
 
 let wordForm = document.querySelector('form')
 let preview = document.querySelector('pre#preview')
@@ -100,16 +128,31 @@ let parseWord = () => {
   return parseLeipzig(word)
 }
 
-
-wordForm.addEventListener('submit', submitEvent => {
-  submitEvent.preventDefault()
-  console.log(`hi`)
+let update = () => {
   let word = parseWord()
 
   preview.textContent = JSON.stringify(word, null, 2)
+}
+
+wordForm.addEventListener('submit', submitEvent => {
+  submitEvent.preventDefault()
+  update()
 })
 
-Object.assign(window, {wordForm, preview, parseLeipzig})
+
+addEventListener('click', e => {
+  if(e.target.closest('word-view')){
+
+    let word = e.target.closest('word-view').data
+    console.log(word)
+
+    document.querySelector('form').form.value = word.form
+    document.querySelector('form').gloss.value = word.gloss
+    update()
+  }
+})
+
+Object.assign(window, {wordForm, update, preview, parseLeipzig})
 
 </script>
 </body>
