@@ -1,4 +1,4 @@
-let parseLeipzig = word {
+let parseLeipzig = word => {
   let form = word.form
   let gloss = word.gloss
 
