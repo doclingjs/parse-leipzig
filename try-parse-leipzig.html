@@ -102,10 +102,11 @@
     <p>Try clicking a word in the presentation of the <a href="https://www.eva.mpg.de/lingua/resources/glossing-rules.php">Leipzig Parsing Rules</a> here, or else type in your own and click “parse”. The data strcture preview will update when submitted. <a href="https://github.com/doclingjs/parse-leipzig">github.com/doclingjs/parse-leipzig</a></p>
   </header>
   <main>
-    <form>
+    <form id="inputs">
       <label>Form: <input name="form" placeholder="form"></label>
       <label>Gloss: <input name="gloss" placeholder="gloss"></label>
       <button>Parse</button>
+      <div id="warning"></div>
     </form>
 
     <text-view src="leipzig-text.json"></text-view>
